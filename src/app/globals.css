@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Cell state */
+  --color-cell-selected: var(--cell-selected);
+  --color-cell-peer: var(--cell-peer);
+  --color-cell-same-value: var(--cell-same-value);
+  --color-cell-error: var(--error-bg);
+
+  /* Game state */
+  --color-game-error: var(--game-error);
+  --color-game-success: var(--game-success);
+  --color-game-success-bg: var(--game-success-bg);
+  --color-game-player: var(--text-player);
+
+  /* Grid borders */
+  --color-grid-border: var(--grid-border);
+  --color-grid-border-strong: var(--grid-border-strong);
+
+  /* Shadows */
+  --shadow-grid: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* Max widths */
+  --container-game: 540px;
+
+  /* Animations */
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-zoom-in-95: zoom-in-95 200ms ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes zoom-in-95 {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
+:root {
+  /* Primary */
+  --color-primary: #4F46E5;
+  --color-primary-hover: #4338CA;
+  --color-primary-soft: #EEF2FF;
+
+  /* Cell state */
+  --cell-selected: #C7D2FE;
+  --cell-peer: #E0E7FF;
+  --cell-same-value: #DDD6FE;
+  --error-bg: #FEE2E2;
+
+  /* Game state */
+  --game-error: #DC2626;
+  --game-success: #16A34A;
+  --game-success-bg: #DCFCE7;
+
+  /* Neutrals */
+  --color-background: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-surface-raised: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-border-strong: #94A3B8;
+  --grid-border: #1E293B;
+  --grid-border-strong: #1E293B;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+  --text-player: #4F46E5;
+}
+
+.dark {
+  --color-primary: #818CF8;
+  --color-primary-hover: #A5B4FC;
+  --color-primary-soft: #312E81;
+
+  --cell-selected: #3730A3;
+  --cell-peer: #1E1B4B;
+  --cell-same-value: #4C1D95;
+  --error-bg: #450A0A;
+
+  --game-error: #F87171;
+  --game-success: #4ADE80;
+  --game-success-bg: #052E16;
+
+  --color-background: #0F172A;
+  --color-surface: #1E293B;
+  --color-surface-raised: #334155;
+  --color-border: #475569;
+  --color-border-strong: #94A3B8;
+  --grid-border: #E2E8F0;
+  --grid-border-strong: #E2E8F0;
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --text-player: #818CF8;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Reduce motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility for tabular numerals in the grid */
+.tabular-nums {
+  font-variant-numeric: tabular-nums lining-nums;
+}
